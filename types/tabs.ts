@@ -1,0 +1,1 @@
+export type Tab = "world-clock" | "alarm" | "stopwatch" | "timer";

@@ -1,9 +1,12 @@
-import Image from "next/image";
+import AppLayout from "@/components/layout/AppLayout";
+import MobileWorldClock from "@/features/world-clock/MobileWorldClock";
 
 export default function Home() {
   return (
-    <div>
-      The Clock App
-    </div>
+    <AppLayout>
+      <div>
+        <MobileWorldClock />
+      </div>
+    </AppLayout>
   );
 }

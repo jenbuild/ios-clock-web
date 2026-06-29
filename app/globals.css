@@ -1,2 +1,16 @@
 @import "tailwindcss";
 
+:root {
+  --background: #000000;
+  --surface: #1c1c1e;
+  --surface-secondary: #2c2c2e;
+
+  --white: #ffffff;
+  --secondary: #8e8e93;
+
+
+  --seperator: #474747;
+  --orange: #ff9f0a;
+  --green: #30d158;
+  --red: #ff453a;
+}
