@@ -1,0 +1,194 @@
+{
+    "A": [
+        {
+            "city": "Abidjan",
+            "country": "Côte d'Ivoire",
+            "timezone": ""
+        },
+        {
+            "city": "Abu Dhabi",
+            "country": "UAE",
+            "timezone": ""
+        },
+        {
+            "city": "Acapulco",
+            "country": "Mexico",
+            "timezone": ""
+        },
+        {
+            "city": "Accra",
+            "country": "Ghana",
+            "timezone": ""
+        },
+        {
+            "city": "Acton",
+            "country": "USA",
+            "timezone": ""
+        },
+        {
+            "city": "Adak",
+            "country": "USA",
+            "timezone": ""
+        },
+        {
+            "city": "Adamstown",
+            "country": "Pictairn Islands",
+            "timezone": ""
+        },
+        {
+            "city": "Addis Ababa",
+            "country": "Ethiopia",
+            "timezone": ""
+        },
+        {
+            "city": "Adelaide",
+            "country": "Australia",
+            "timezone": ""
+        },
+        {
+            "city": "Aden",
+            "country": "Yemen",
+            "timezone": ""
+        },
+        {
+            "city": "Aguascalientes",
+            "country": "Mexico",
+            "timezone": ""
+        },
+        {
+            "city": "Aktau",
+            "country": "Kazakhstan",
+            "timezone": ""
+        },
+        {
+            "city": "Albuquerque",
+            "country": "USA",
+            "timezone": ""
+        },
+        {
+            "city": "Alexandria",
+            "country": "Egypt",
+            "timezone": ""
+        },
+        {
+            "city": "Algiers",
+            "country": "Algeria",
+            "timezone": ""
+        },
+        {
+            "city": "Alofi",
+            "country": "Niue",
+            "timezone": ""
+        },
+        {
+            "city": "Amman",
+            "country": "Jordan",
+            "timezone": ""
+        },
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "timezone": ""
+        },
+        {
+            "city": "Amundsen-Scott Station",
+            "country": "Antarctica",
+            "timezone": ""
+        },
+        {
+            "city": "Anadyr",
+            "country": "Russia",
+            "timezone": ""
+        },
+        {
+            "city": "Anchorage",
+            "country": "USA",
+            "timezone": ""
+        },
+        {
+            "city": "Andorra la Vella",
+            "country": "Andorra",
+            "timezone": ""
+        },
+        {
+            "city": "Ankara",
+            "country": "Türkiye",
+            "timezone": ""
+        },
+        {
+            "city": "Antananarivo",
+            "country": "Madagascar",
+            "timezone": ""
+        },
+        {
+            "city": "Antwerp",
+            "country": "Belgium",
+            "timezone": ""
+        },
+        {
+            "city": "Apia",
+            "country": "Samoa",
+            "timezone": ""
+        },
+        {
+            "city": "Aqtobe",
+            "country": "Kazakhstan",
+            "timezone": ""
+        },
+        {
+            "city": "Araguaina",
+            "country": "Brazil",
+            "timezone": ""
+        },
+        {
+            "city": "Ashgabat",
+            "country": "Turkmenistan",
+            "timezone": ""
+        },
+        {
+            "city": "Asmera",
+            "country": "Eritrea",
+            "timezone": ""
+        },
+        {
+            "city": "Astana",
+            "country": "Kazakhstan",
+            "timezone": ""
+        },
+        {
+            "city": "Asunción",
+            "country": "Paraguay",
+            "timezone": ""
+        },
+        {
+            "city": "Athens",
+            "country": "Greece",
+            "timezone": ""
+        },
+        {
+            "city": "Atikokan",
+            "country": "Canada",
+            "timezone": ""
+        },
+        {
+            "city": "Atlanta",
+            "country": "USA",
+            "timezone": ""
+        },
+        {
+            "city": "Atyrau",
+            "country": "Kazakhstan",
+            "timezone": ""
+        },
+        {
+            "city": "Auckland",
+            "country": "New Zealand",
+            "timezone": ""
+        },
+        {
+            "city": "Austin",
+            "country": "USA",
+            "timezone": ""
+        }
+    ]
+}
