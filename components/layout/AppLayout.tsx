@@ -1,5 +1,5 @@
-import MobileToolbar from "./MobileToolbar"
-import DesktopToolbar from "./DesktopToolbar"
+import BottomNavigation from "./BottomNavigation"
+import DesktopNavigation from "./DesktopNavigation"
 
 interface AppLayoutProps {
     children: React.ReactNode;
@@ -13,11 +13,11 @@ const AppLayout = ({ children }: AppLayoutProps) => {
                     {children}
                 </main>
 
-                <MobileToolbar />
+                <BottomNavigation />
             </div>
 
             <div className="hidden md:flex md:flex-col min-h-dvh">
-                <DesktopToolbar />
+                <DesktopNavigation />
                 <main className="flex-1 overflow-y-auto">
                     <div className="mx-auto h-full max-w-7xl px-8 py-8">
                         {children}

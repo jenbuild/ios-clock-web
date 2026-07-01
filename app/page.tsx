@@ -1,12 +1,5 @@
-import AppLayout from "@/components/layout/AppLayout";
-import MobileWorldClock from "@/features/world-clock/MobileWorldClock";
+import { redirect } from "next/navigation";
 
 export default function Home() {
-  return (
-    <AppLayout>
-      <div>
-        <MobileWorldClock />
-      </div>
-    </AppLayout>
-  );
+  redirect("/world-clock");
 }

@@ -27,7 +27,7 @@ const worldClocksData: WorldClockRowProps[] = [
     },
 ]
 
-const MobileWorldClock = () => {
+const MobileWorldClockScreen = () => {
     const now = useCurrentTime();
 
     return (
@@ -57,4 +57,4 @@ const MobileWorldClock = () => {
     )
 }
 
-export default MobileWorldClock
+export default MobileWorldClockScreen
