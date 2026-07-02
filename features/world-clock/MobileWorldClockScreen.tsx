@@ -11,28 +11,14 @@ import { useState } from "react";
 import AddCityDrawer from "./AddCityDrawer";
 
 const worldClocksData: WorldClockRowProps[] = [
-    {
-        city: "New Delhi",
-        time: "6:58",
-        meridiem: "AM",
-        day: "Today, +0HRS"
-    },
-    {
-        city: "Dhaka",
-        time: "7:28",
-        meridiem: "AM",
-        day: "Today, +30MINS"
-    },
-    {
-        city: "Cambridge Bay",
-        time: "7:28",
-        meridiem: "PM",
-        day: "Today, -11:30"
-    },
 ]
 
 const MobileWorldClockScreen = () => {
     const [isAddCityDrawerOpen, setIsAddCityDrawerOpen] = useState(false);
+    const addNewCity = (city: WorldClockRowProps) => {
+        worldClocksData.push(city)
+        setIsAddCityDrawerOpen(false)
+    }
 
     return (
         <>
@@ -64,11 +50,11 @@ const MobileWorldClockScreen = () => {
             <section className="px-5">
                 <ScreenTitle title="World Clock" />
                 <section className="mt-1">
-                    {worldClocksData.map((clock: WorldClockRowProps, index: number) => {
+                    {worldClocksData.map((city: WorldClockRowProps, index: number) => {
                         return (
                             <div key={index}>
                                 {index == 0 && <Divider />}
-                                <WorldClockRow {...clock} />
+                                <WorldClockRow {...city} />
                             </div>
                         )
                     })}
@@ -82,6 +68,7 @@ const MobileWorldClockScreen = () => {
             <AddCityDrawer
                 open={isAddCityDrawerOpen}
                 onOpenChange={setIsAddCityDrawerOpen}
+                addNewCity={addNewCity}
             />
         </>
     )
