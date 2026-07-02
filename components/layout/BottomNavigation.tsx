@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import { navigationItems } from "@/constants/navigation";
 import Link from "next/link";
-import { motion } from 'framer-motion';
+import { motion } from "motion/react";
 
 export default function BottomNavigation() {
     const pathname = usePathname();
@@ -29,7 +29,7 @@ export default function BottomNavigation() {
                         >
                             <motion.div
                                 whileTap={{
-                                    scale: 0.88,
+                                    scale: 0.92,
                                 }}
                                 transition={{
                                     type: "spring",

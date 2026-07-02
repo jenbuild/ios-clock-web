@@ -4,7 +4,9 @@ import { Plus } from "lucide-react"
 import WorldClockRow from "./WorldClockRow"
 import { WorldClockRowProps } from "@/types/worldclock"
 import Divider from "@/components/ui/Divider"
-import { useCurrentTime } from "@/hooks/useCurrentTime"
+import ScreenTitle from "@/components/ui/ScreenTitle";
+import IconButton from "@/components/ui/IconButton";
+import Button from "@/components/ui/Button";
 
 const worldClocksData: WorldClockRowProps[] = [
     {
@@ -28,20 +30,33 @@ const worldClocksData: WorldClockRowProps[] = [
 ]
 
 const MobileWorldClockScreen = () => {
-    const now = useCurrentTime();
-
     return (
         <>
-            <section className="fixed top-2 flex w-full justify-between items-center pt-1 px-4">
-                <button className="rounded-full bg-[var(--surface-secondary)] px-4 py-2">Edit</button>
-                <button className="rounded-full bg-[#3a3a3c] p-2">
-                    <Plus size={24} />
-                </button>
-            </section>
+            {
+                worldClocksData.length > 0 &&
+                (<section
+                    className="fixed top-2 flex w-full justify-between items-center pt-1 px-5"
+                >
+                    <Button text={"Edit"} />
+                    <IconButton
+                        icon={Plus}
+                        aria-label="Add City"
+                    />
+                </section>)
+            }
+            {
+                worldClocksData.length === 0 &&
+                (<section
+                    className="fixed top-2 flex w-full justify-end items-center pt-1 px-5"
+                >
+                    <IconButton
+                        icon={Plus}
+                        aria-label="Add City"
+                    />
+                </section>)
+            }
             <section className="px-5">
-                <section className="mt-20 mb-2">
-                    <div className="text-4xl font-bold leading-none tracking-[-0.04em">World Clock</div>
-                </section>
+                <ScreenTitle title="World Clock" />
                 <section className="mt-1">
                     {worldClocksData.map((clock: WorldClockRowProps, index: number) => {
                         return (
@@ -51,6 +66,11 @@ const MobileWorldClockScreen = () => {
                             </div>
                         )
                     })}
+                    {worldClocksData.length === 0 &&
+                        <div className="h-[70vh] w-full flex items-center justify-center text-2xl text-white/30">
+                            No World Clocks
+                        </div>
+                    }
                 </section>
             </section>
         </>
