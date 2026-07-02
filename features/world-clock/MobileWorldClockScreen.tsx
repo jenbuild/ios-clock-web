@@ -7,6 +7,8 @@ import Divider from "@/components/ui/Divider"
 import ScreenTitle from "@/components/ui/ScreenTitle";
 import IconButton from "@/components/ui/IconButton";
 import Button from "@/components/ui/Button";
+import { useState } from "react";
+import AddCityDrawer from "./AddCityDrawer";
 
 const worldClocksData: WorldClockRowProps[] = [
     {
@@ -30,6 +32,8 @@ const worldClocksData: WorldClockRowProps[] = [
 ]
 
 const MobileWorldClockScreen = () => {
+    const [isAddCityDrawerOpen, setIsAddCityDrawerOpen] = useState(false);
+
     return (
         <>
             {
@@ -41,6 +45,7 @@ const MobileWorldClockScreen = () => {
                     <IconButton
                         icon={Plus}
                         aria-label="Add City"
+                        onClick={() => setIsAddCityDrawerOpen(true)}
                     />
                 </section>)
             }
@@ -52,6 +57,7 @@ const MobileWorldClockScreen = () => {
                     <IconButton
                         icon={Plus}
                         aria-label="Add City"
+                        onClick={() => setIsAddCityDrawerOpen(true)}
                     />
                 </section>)
             }
@@ -73,6 +79,10 @@ const MobileWorldClockScreen = () => {
                     }
                 </section>
             </section>
+            <AddCityDrawer
+                open={isAddCityDrawerOpen}
+                onOpenChange={setIsAddCityDrawerOpen}
+            />
         </>
     )
 }
