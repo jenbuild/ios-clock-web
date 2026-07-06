@@ -1,6 +1,7 @@
-import { motion } from 'motion/react';
+import { HTMLMotionProps, motion } from 'motion/react';
 
-interface ButtonProps {
+interface ButtonProps
+    extends Omit<HTMLMotionProps<"button">, "children"> {
     text: string;
 }
 

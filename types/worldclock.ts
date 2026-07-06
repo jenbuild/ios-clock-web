@@ -1,6 +1,6 @@
 export interface WorldClockRowProps  {
-    city: String;
-    country:String;
+    city: string;
+    country:string;
     timezone: string;
     latitude?: any;
     longitude?: any;

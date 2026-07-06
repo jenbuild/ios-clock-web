@@ -1,6 +1,6 @@
 "use client";
 
-import { Plus } from "lucide-react"
+import { Check, Plus } from "lucide-react"
 import WorldClockRow from "./WorldClockRow"
 import { WorldClockRowProps } from "@/types/worldclock"
 import Divider from "@/components/ui/Divider"
@@ -15,9 +15,11 @@ const worldClocksData: WorldClockRowProps[] = [
 
 const MobileWorldClockScreen = () => {
     const [isAddCityDrawerOpen, setIsAddCityDrawerOpen] = useState(false);
+    const [isEditMode, setIsEditMode] = useState(false);
+    const [worldClocks, setWorldClocks] = useState<WorldClockRowProps[]>([])
     const addNewCity = (city: WorldClockRowProps) => {
-        worldClocksData.push(city)
-        setIsAddCityDrawerOpen(false)
+        setWorldClocks(prev => [...prev, city]);
+        setIsAddCityDrawerOpen(false);
     }
 
     return (
@@ -27,7 +29,17 @@ const MobileWorldClockScreen = () => {
                 (<section
                     className="fixed top-2 flex w-full justify-between items-center pt-1 px-5"
                 >
-                    <Button text={"Edit"} />
+                    {isEditMode ? (
+                        <IconButton
+                            icon={Check}
+                            aria-label="Save Edit"
+                            onClick={() => setIsEditMode(false)}
+                        />
+                    ) : (
+                        <Button text={"Edit"}
+                            onClick={() => setIsEditMode(true)}
+                        />
+                    )}
                     <IconButton
                         icon={Plus}
                         aria-label="Add City"
@@ -50,19 +62,19 @@ const MobileWorldClockScreen = () => {
             <section className="px-5">
                 <ScreenTitle title="World Clock" />
                 <section className="mt-1">
-                    {worldClocksData.map((city: WorldClockRowProps, index: number) => {
+                    {worldClocks.length === 0 &&
+                        <div className="h-[70vh] w-full flex items-center justify-center text-2xl text-white/30">
+                            No World Clocks
+                        </div>
+                    }
+                    {worldClocks.map((city: WorldClockRowProps, index: number) => {
                         return (
-                            <div key={index}>
+                            <div key={city.city + city.country}>
                                 {index == 0 && <Divider />}
                                 <WorldClockRow {...city} />
                             </div>
                         )
                     })}
-                    {worldClocksData.length === 0 &&
-                        <div className="h-[70vh] w-full flex items-center justify-center text-2xl text-white/30">
-                            No World Clocks
-                        </div>
-                    }
                 </section>
             </section>
             <AddCityDrawer
