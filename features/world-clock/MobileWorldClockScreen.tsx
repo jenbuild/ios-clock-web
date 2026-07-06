@@ -9,6 +9,7 @@ import IconButton from "@/components/ui/IconButton";
 import Button from "@/components/ui/Button";
 import { useState } from "react";
 import AddCityDrawer from "./AddCityDrawer";
+import { getCityKey } from "@/lib/world-clock";
 
 const worldClocksData: WorldClockRowProps[] = [
 ]
@@ -69,7 +70,7 @@ const MobileWorldClockScreen = () => {
                     }
                     {worldClocks.map((city: WorldClockRowProps, index: number) => {
                         return (
-                            <div key={city.city + city.country}>
+                            <div key={getCityKey(city)}>
                                 {index == 0 && <Divider />}
                                 <WorldClockRow {...city} />
                             </div>
