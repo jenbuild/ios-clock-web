@@ -1,6 +1,6 @@
-import { LucideIcon } from "lucide-react";
 import clsx from "clsx";
-import { motion, HTMLMotionProps } from "motion/react";
+import { LucideIcon } from "lucide-react";
+import { HTMLMotionProps, motion } from "motion/react";
 
 
 interface IconButtonProps

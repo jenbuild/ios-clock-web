@@ -1,9 +1,9 @@
-import Divider from "@/components/ui/Divider"
-import { WorldClockRowProps } from "@/types/worldclock"
-import { formatCityTime, getOffset, getRelativeDay } from "@/utils/timezone"
+import Divider from "@/components/ui/Divider";
+import { WorldClock } from "@/types/worldclock";
+import { formatCityTime, getOffset, getRelativeDay } from "@/utils/timezone";
 
 
-const WorldClockRow = (city: WorldClockRowProps) => {
+const WorldClockRow = (city: WorldClock) => {
     const time = formatCityTime(city.timezone);
     const day = getRelativeDay(city.timezone);
     const offset = getOffset(city.timezone);

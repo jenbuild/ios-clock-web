@@ -1,10 +1,10 @@
 "use client";
 
-import clsx from "clsx";
-import { usePathname } from "next/navigation";
 import { navigationItems } from "@/constants/navigation";
-import Link from "next/link";
+import clsx from "clsx";
 import { motion } from "motion/react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function BottomNavigation() {
     const pathname = usePathname();

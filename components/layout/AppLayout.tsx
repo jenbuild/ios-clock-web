@@ -1,5 +1,5 @@
-import BottomNavigation from "./BottomNavigation"
-import DesktopNavigation from "./DesktopNavigation"
+import BottomNavigation from "./BottomNavigation";
+import DesktopNavigation from "./DesktopNavigation";
 
 interface AppLayoutProps {
     children: React.ReactNode;

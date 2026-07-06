@@ -1,24 +1,24 @@
 "use client";
 
-import { Check, Plus } from "lucide-react"
-import WorldClockRow from "./WorldClockRow"
-import { WorldClockRowProps } from "@/types/worldclock"
-import Divider from "@/components/ui/Divider"
-import ScreenTitle from "@/components/ui/ScreenTitle";
-import IconButton from "@/components/ui/IconButton";
 import Button from "@/components/ui/Button";
+import Divider from "@/components/ui/Divider";
+import IconButton from "@/components/ui/IconButton";
+import ScreenTitle from "@/components/ui/ScreenTitle";
+import { getCityKey } from "@/lib/world-clock";
+import { WorldClock } from "@/types/worldclock";
+import { Check, Plus } from "lucide-react";
 import { useState } from "react";
 import AddCityDrawer from "./AddCityDrawer";
-import { getCityKey } from "@/lib/world-clock";
+import WorldClockRow from "./WorldClockRow";
 
-const worldClocksData: WorldClockRowProps[] = [
+const worldClocksData: WorldClock[] = [
 ]
 
 const MobileWorldClockScreen = () => {
     const [isAddCityDrawerOpen, setIsAddCityDrawerOpen] = useState(false);
     const [isEditMode, setIsEditMode] = useState(false);
-    const [worldClocks, setWorldClocks] = useState<WorldClockRowProps[]>([])
-    const addNewCity = (city: WorldClockRowProps) => {
+    const [worldClocks, setWorldClocks] = useState<WorldClock[]>([])
+    const addNewCity = (city: WorldClock) => {
         setWorldClocks(prev => [...prev, city]);
         setIsAddCityDrawerOpen(false);
     }
@@ -68,7 +68,7 @@ const MobileWorldClockScreen = () => {
                             No World Clocks
                         </div>
                     }
-                    {worldClocks.map((city: WorldClockRowProps, index: number) => {
+                    {worldClocks.map((city: WorldClock, index: number) => {
                         return (
                             <div key={getCityKey(city)}>
                                 {index == 0 && <Divider />}
