@@ -3,18 +3,18 @@
 import Button from "@/components/ui/Button";
 import IconButton from "@/components/ui/IconButton";
 import ScreenTitle from "@/components/ui/ScreenTitle";
-import { Alarm } from "@/types/alarm";
 import { Check, Plus } from "lucide-react";
 import { useState } from "react";
 
-const MobileAlarmScreen = () => {
-    const [alarms, setAlarms] = useState<Alarm[]>([]);
+const MobileTimerScreen = () => {
+    const [timers, setTimers] = useState([]);
+    const [recents, setRecents] = useState([]);
     const [isEditMode, setIsEditMode] = useState(false);
 
     return (
         <>
             {
-                alarms.length > 0 && (
+                timers.length > 0 && (
                     (<section
                         className="fixed top-2 flex w-full justify-between items-center pt-1 px-5"
                     >
@@ -37,28 +37,47 @@ const MobileAlarmScreen = () => {
                 )
             }
             {
-                alarms.length === 0 &&
+                timers.length === 0 &&
                 (<section
-                    className="fixed top-2 flex w-full justify-end items-center pt-1 px-5"
+                    className="fixed top-2 flex w-full justify-start items-center pt-1 px-5"
                 >
-                    <IconButton
-                        icon={Plus}
-                        aria-label="Add Alarm"
-                    />
+                    {recents.length > 0 && (
+                        <>
+                            {isEditMode ? (
+                                <IconButton
+                                    icon={Check}
+                                    aria-label="Save Edit"
+                                    onClick={() => setIsEditMode(false)}
+                                />
+                            ) : (
+                                <Button text={"Edit"}
+                                    onClick={() => setIsEditMode(true)}
+                                />
+                            )}
+                        </>
+                    )}
                 </section>)
             }
             <section className="px-5">
-                <ScreenTitle title="Alarms" />
+                <ScreenTitle title="Timers" />
                 <section className="mt-1">
-                    {alarms.length === 0 &&
+                    {timers.length === 0 &&
                         <div className="h-[70vh] w-full flex items-center justify-center text-2xl text-white/30">
-                            No Alarms
+                            No Timers
                         </div>
                     }
+                </section>
+                <section className="mt-1">
+                    {recents.length > 0 &&
+                        (
+                            <>
+                                <div className="text-2xl">Recents</div>
+                            </>
+                        )}
                 </section>
             </section>
         </>
     )
 }
 
-export default MobileAlarmScreen
+export default MobileTimerScreen

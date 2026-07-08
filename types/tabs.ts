@@ -1,1 +1,1 @@
-export type Tab = "World Clock" | "Alarm" | "Stopwatch" | "Timer";
+export type Tab = "World Clock" | "Alarms" | "Stopwatch" | "Timers";

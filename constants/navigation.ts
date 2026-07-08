@@ -9,7 +9,7 @@ export const navigationItems = [
 	},
 	{
 		href: "/alarm",
-		label: "Alarm",
+		label: "Alarms",
 		icon: AlarmClock,
 	},
 	{
@@ -19,7 +19,7 @@ export const navigationItems = [
 	},
 	{
 		href: "/timer",
-		label: "Timer",
+		label: "Timers",
 		icon: Clock10,
 	},
 ] satisfies {

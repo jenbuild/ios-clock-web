@@ -1,6 +1,11 @@
+import MobileTimerScreen from "./MobileTimerScreen"
+
 const TimerScreen = () => {
     return (
-        <div>TimerScreen</div>
+        <>
+            <div className="md:hidden">
+                <MobileTimerScreen />
+            </div></>
     )
 }
 
