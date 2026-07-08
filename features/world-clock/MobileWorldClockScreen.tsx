@@ -5,58 +5,57 @@ import Divider from "@/components/ui/Divider";
 import IconButton from "@/components/ui/IconButton";
 import ScreenTitle from "@/components/ui/ScreenTitle";
 import { getCityKey } from "@/lib/world-clock";
+import { useWorldClockStore } from "@/stores/WorldClockStore";
 import { WorldClock } from "@/types/worldclock";
 import { Check, Plus } from "lucide-react";
-import { useState } from "react";
 import AddCityDrawer from "./AddCityDrawer";
 import WorldClockRow from "./WorldClockRow";
 
-const worldClocksData: WorldClock[] = [
-]
-
 const MobileWorldClockScreen = () => {
-    const [isAddCityDrawerOpen, setIsAddCityDrawerOpen] = useState(false);
-    const [isEditMode, setIsEditMode] = useState(false);
-    const [worldClocks, setWorldClocks] = useState<WorldClock[]>([])
-    const addNewCity = (city: WorldClock) => {
-        setWorldClocks(prev => [...prev, city]);
-        setIsAddCityDrawerOpen(false);
-    }
+    const {
+        worldClocks,
+        addCity,
+        isDrawerOpen,
+        setDrawerOpen,
+        isEditing,
+        setEditing
+    } = useWorldClockStore();
+    console.log(worldClocks)
 
     return (
         <>
             {
-                worldClocksData.length > 0 &&
+                worldClocks.length > 0 &&
                 (<section
                     className="fixed top-2 flex w-full justify-between items-center pt-1 px-5"
                 >
-                    {isEditMode ? (
+                    {isEditing ? (
                         <IconButton
                             icon={Check}
                             aria-label="Save Edit"
-                            onClick={() => setIsEditMode(false)}
+                            onClick={() => setEditing(false)}
                         />
                     ) : (
                         <Button text={"Edit"}
-                            onClick={() => setIsEditMode(true)}
+                            onClick={() => setEditing(true)}
                         />
                     )}
                     <IconButton
                         icon={Plus}
                         aria-label="Add City"
-                        onClick={() => setIsAddCityDrawerOpen(true)}
+                        onClick={() => setDrawerOpen(true)}
                     />
                 </section>)
             }
             {
-                worldClocksData.length === 0 &&
+                worldClocks.length === 0 &&
                 (<section
                     className="fixed top-2 flex w-full justify-end items-center pt-1 px-5"
                 >
                     <IconButton
                         icon={Plus}
                         aria-label="Add City"
-                        onClick={() => setIsAddCityDrawerOpen(true)}
+                        onClick={() => setDrawerOpen(true)}
                     />
                 </section>)
             }
@@ -79,9 +78,9 @@ const MobileWorldClockScreen = () => {
                 </section>
             </section>
             <AddCityDrawer
-                open={isAddCityDrawerOpen}
-                onOpenChange={setIsAddCityDrawerOpen}
-                addNewCity={addNewCity}
+                open={isDrawerOpen}
+                onOpenChange={setDrawerOpen}
+                addNewCity={addCity}
             />
         </>
     )

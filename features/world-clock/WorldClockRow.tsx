@@ -1,4 +1,5 @@
 import Divider from "@/components/ui/Divider";
+import { useWorldClockStore } from "@/stores/WorldClockStore";
 import { WorldClock } from "@/types/worldclock";
 import { formatCityTime, getOffset, getRelativeDay } from "@/utils/timezone";
 
@@ -7,6 +8,8 @@ const WorldClockRow = (city: WorldClock) => {
     const time = formatCityTime(city.timezone);
     const day = getRelativeDay(city.timezone);
     const offset = getOffset(city.timezone);
+
+    const { isEditing } = useWorldClockStore();
 
     return (
         <section className="pt-2">
