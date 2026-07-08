@@ -20,7 +20,6 @@ const MobileWorldClockScreen = () => {
         isEditing,
         setEditing
     } = useWorldClockStore();
-    console.log(worldClocks)
 
     return (
         <>
