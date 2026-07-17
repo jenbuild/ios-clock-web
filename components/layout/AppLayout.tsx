@@ -19,7 +19,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
             <div className="hidden md:flex md:flex-col min-h-dvh">
                 <DesktopNavigation />
                 <main className="flex-1 overflow-y-auto">
-                    <div className="mx-auto h-full max-w-7xl px-8 py-8">
+                    <div className="mx-auto max-w-7xl px-8 py-8 mt-10">
                         {children}
                     </div>
                 </main>

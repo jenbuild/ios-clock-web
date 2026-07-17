@@ -8,14 +8,15 @@ import { usePathname } from "next/navigation";
 
 const DesktopNavigation = () => {
     const pathname = usePathname();
+    const activeTabId = navigationItems.findIndex((tab) => tab.href === pathname);
 
     return (
-        <header className="w-full flex justify-center">
+        <header className="fixed pt-4 pb-2 z-50 w-full flex justify-center bg-black">
             <nav
-                className="fixed top-4 z-50 rounded-full border border-white/20 bg-[var(--surface)]/75 backdrop-blur-3xl shadow-2xl"
+                className="rounded-full border border-white/20 bg-[var(--surface)]/75 backdrop-blur-3xl shadow-2xl"
             >
                 <div className="grid h-10 grid-cols-4">
-                    {navigationItems.map((tab) => {
+                    {navigationItems.map((tab, index) => {
                         const active = pathname === tab.href;
 
                         return (
@@ -23,7 +24,7 @@ const DesktopNavigation = () => {
                                 key={tab.href}
                                 href={tab.href}
                                 className={clsx(
-                                    "flex flex-col items-center justify-center gap-1 transition-colors text-white"
+                                    "flex  items-center justify-center transition-colors text-white"
                                 )}
                             >
                                 <motion.div
@@ -37,13 +38,15 @@ const DesktopNavigation = () => {
                                     }}
                                     className={clsx(
                                         "flex h-9 w-full flex-col items-center justify-center rounded-full duration-300 ease-out px-3",
-                                        active ? "bg-[#3a3a3c]" : "bg-transparent"
+                                        active ? "bg-[#3a3a3c]" : "bg-transparent",
+                                        "hover:bg-[#3a3a3c]/90"
                                     )}
                                 >
                                     <span className="text-md font-medium leading-none">
                                         {tab.label}
                                     </span>
                                 </motion.div>
+                                <div className={clsx(index !== activeTabId && index !== navigationItems.length - 1 && index !== activeTabId - 1 && "border-r-2 border-white/20 h-[20px]")}></div>
                             </Link>
                         );
                     })}
